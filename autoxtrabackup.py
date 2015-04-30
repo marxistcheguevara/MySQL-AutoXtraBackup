@@ -24,8 +24,8 @@ def print_version(ctx, param, value):
 
 
 def all_procedure(prepare, backup, partial):
-    if (not prepare) and (not backup) and (not partial):
-        print("ERROR: you must give an option, run with --help for available options")
+    if not any([prepare or backup or partial]):
+        print("ERROR: you must specify an option or run script with --help for available options")
     elif prepare:
         a = Prepare()
         a.prepare_backup_and_copy_back()
